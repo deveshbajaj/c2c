@@ -1,0 +1,39 @@
+CREATE TABLE patient
+(
+p_id int NOT NULL,
+Name varchar(255) NOT NULL,
+email varchar(255),
+mobile_no int(10),
+gender varchar(255),
+nationality varchar(255),
+blood varchar(255),
+CONSTRAINT pk_custmer_id  PRIMARY KEY (p_id)
+);
+
+CREATE TABLE address
+(
+p_id int NOT NULL,
+door int(5),
+area varchar(255),
+pincode int(10),
+state varchar(255),
+country varchar(255),
+CONSTRAINT fk_pid_id  FOREIGN KEY (p_id ) REFERENCES patient (p_id)
+);
+
+ALTER TABLE patient add  password varchar(11)
+
+INSERT INTO patient VALUES (90001,' honey  ','honey@gmail,com',979054554,'male','indian','o+');
+INSERT INTO patient VALUES (90002,' devesh','devesh@gmail,com',823725079,'male','indian','B+');
+INSERT INTO patient VALUES (90003,' bajaj ','bajaj@gmail,com',975824554,'male','indian','C+');
+INSERT INTO patient VALUES (90004,' Gaara ','Gaara@gmail,com',9790565,'male','japannese','o+');
+INSERT INTO patient VALUES (90005,' naruto','naruto@gmail,com',953554554,'female','indian','o+');
+
+UPDATE patient SET   name=" xxx "   WHERE    name=" naruto ";
+
+
+INSERT INTO address VALUES (90001,1211,'vellore',632014,'TN','INDIA');
+INSERT INTO address VALUES (90002,1212,'mahara',632014,'TN','INDIA');
+INSERT INTO address VALUES (90003,1213,'UP',632014,'UK','INDIA');
+INSERT INTO address VALUES (90004,1214,'Konoha',632014,'NJK','JAPAN');
+INSERT INTO address VALUES (90005,1215,'hiddne village in sand',632014,'HJHJ','JAPAN');
