@@ -13,7 +13,10 @@ form_class, QMainWindow = uic.loadUiType("login_page.ui")
 
 from sys import executable
 from subprocess import Popen, CREATE_NEW_CONSOLE
-
+import datetime
+import mysql.connector
+conn=mysql.connector.connect(user='root',password='devesh',host='localhost',database='GUI')
+cursor = conn.cursor()
 
 
 
@@ -30,9 +33,18 @@ class container(QMainWindow, form_class):
     def log(self):
         username = self.lineEdit.text()
         password = self.lineEdit_2.text()
+        cursor = conn.cursor()
+        #query_1= ("select 'password' from patient where username=%s"%username)
+        
+        #cursor.execute(query_1)
+##        for x in cursor:
+##            data=[str(i) for i in x]
         if username == username:
             if password == password:
                 Popen([executable, 'home_page.py'], creationflags=CREATE_NEW_CONSOLE)
+                self.label_4.setText("    ")
+            else :
+                self.label_4.setText("Wrong Password try again ")
     def sigup(self):
         Popen([executable, 'signup_page.py'], creationflags=CREATE_NEW_CONSOLE)
         
